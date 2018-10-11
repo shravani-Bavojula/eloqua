@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+<servlet>
+<servlet-name>s1</servlet-name>
+<servlet-class>Create</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>s2</servlet-name>
+<servlet-class>Notify</servlet-class>
+</servlet>
+
+</web-app>
