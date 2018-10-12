@@ -25,7 +25,7 @@ public class Configure extends HttpServlet {
     	abc="{\"0\":\"URL|instance|siteId|asset|status\"}";
         // TODO Auto-generated constructor stub
     }
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	
 	// For Tracing
@@ -47,7 +47,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		response.setStatus(200);
 		
 	}
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	// For Tracing
 	
