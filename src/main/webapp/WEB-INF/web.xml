@@ -13,4 +13,9 @@
 <servlet-class>Notify</servlet-class>
 </servlet>
 
+   <servlet>
+    <servlet-name>s3</servlet-name>
+    <servlet-class>Configure</servlet-class>
+  </servlet>
+  
 </web-app>

@@ -16,9 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Notify")
 public class Notify extends HttpServlet {
+	static String abc;
+	static int count;
 	private static final long serialVersionUID = 2L; 
 
     public Notify() {
+    	abc="{\"0\":\"URL|instance|siteId|asset|status\"}";
         // TODO Auto-generated constructor stub
     }
 
@@ -31,43 +34,14 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	trace t=new trace();
 	t.send(trace);
 	*/
-	try {
-		String requestUrl = "https://s2121803030.t.eloqua.com/e/f2?elqFormName=apicheck&elqSiteId=2121803030&paragraphText="+text;
-		URL url = new URL(requestUrl);
-	    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-	    connection.setDoInput(true);
-	    connection.setDoOutput(true);
-	    connection.setRequestMethod("POST");
-	    //connection.connect();
-	    connection.setRequestProperty("Accept", "application/json");
-	    connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-	    //System.out.println("1");
-	    OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-		//writer.write(payload);
-		//System.out.println("2");
-		writer.close();
-	    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-	    //StringBuffer jsonString = new StringBuffer();
-	    //String line;
-	    //while ((line = br.readLine()) != null) {
-	    //        jsonString.append(line);
-	    //}
-	    //br.close();
-	    //System.out.println("Hello 0");
-	    connection.disconnect();
-	} catch (Exception e) {
-	        throw new RuntimeException(e.getMessage());
-	}
 	
 	// For Tracing
 		
-		/*
-		PrintWriter out = response.getWriter(); 
-		response.setContentType("application/json"); 
-		response.setCharacterEncoding("UTF-8");
-		out.print("");
-		out.flush();
-		*/
+	PrintWriter out = response.getWriter(); 
+	response.setContentType("application/json"); 
+	response.setCharacterEncoding("UTF-8");
+	out.print("["+abc+"]");
+	out.flush();
 		response.setStatus(204);
 		
 	}
@@ -76,37 +50,12 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	// For Tracing
 	
 	String text = request.getRequestURL()+"|"+request.getParameter("instance")+"|"+request.getParameter("siteId")+"|"+request.getParameter("asset")+"|"+request.getParameter("status");
+	count++;
+	abc+=",{\""+count+"\":\""+text+"\"}";
 	/*
 	trace t=new trace();
 	t.send(trace);
 	*/
-	try {
-		String requestUrl = "https://s2121803030.t.eloqua.com/e/f2?elqFormName=apicheck&elqSiteId=2121803030&paragraphText="+text;
-		URL url = new URL(requestUrl);
-	    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-	    connection.setDoInput(true);
-	    connection.setDoOutput(true);
-	    connection.setRequestMethod("POST");
-	    //connection.connect();
-	    connection.setRequestProperty("Accept", "application/json");
-	    connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-	    //System.out.println("1");
-	    OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-		//writer.write(payload);
-		//System.out.println("2");
-		writer.close();
-	    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-	    //StringBuffer jsonString = new StringBuffer();
-	    //String line;
-	    //while ((line = br.readLine()) != null) {
-	    //        jsonString.append(line);
-	    //}
-	    //br.close();
-	    //System.out.println("Hello 0");
-	    connection.disconnect();
-	} catch (Exception e) {
-	        throw new RuntimeException(e.getMessage());
-	}
 	
 	// For Tracing
 	/*
@@ -116,7 +65,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	out.print("{  \"requiresConfiguration\": true }");
 	out.flush();
 	*/
-	doGet(request, response);
+	//doGet(request, response);
 	response.setStatus(204);
 	
 }
