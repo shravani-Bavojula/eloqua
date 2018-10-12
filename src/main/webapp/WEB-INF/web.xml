@@ -17,5 +17,8 @@
     <servlet-name>s3</servlet-name>
     <servlet-class>Configure</servlet-class>
   </servlet>
-  
+   <servlet>
+    <servlet-name>s4</servlet-name>
+    <servlet-class>Configure2</servlet-class>
+  </servlet>
 </web-app>

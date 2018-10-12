@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Configure")
-public class Configure extends HttpServlet {
+@WebServlet("/Create")
+public class Configure2 extends HttpServlet {
 	static String abc;
 	static int count;
 	private static final long serialVersionUID = 2L; 
 	
-    public Configure() {
+    public Configure2() {
     	abc="{\"0\":\"URL|instance|siteId|asset|status\"}";
         // TODO Auto-generated constructor stub
     }
@@ -53,8 +53,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	
 	String text = request.getRequestURL()+"|"+request.getParameter("instance")+"|"+request.getParameter("siteId")+"|"+request.getParameter("asset")+"|"+request.getParameter("status");
 	//System.out.println(text);
-	
-	
 	/*
 	trace t=new trace();
 	t.send(trace);
@@ -63,46 +61,12 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	
 	count++;
 	abc+=",{\""+count+"\":\""+text+"\"}";
-	
-	//PUT API CALL
-	try {
-		String requestUrl = "https://secure.eloqua.com/api/cloud/1.0/feeders/instances/"+request.getParameter("instance");
-		URL url = new URL(requestUrl);
-	    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-	    connection.setDoInput(true);
-	    connection.setDoOutput(true);
-	    connection.setRequestMethod("PUT");
-	    //connection.connect();
-	    connection.setRequestProperty("Accept", "application/json");
-	    connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-	    
-	    //System.out.println("1");
-	    OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-		writer.write("\"{  \\\"requiresConfiguration\\\": false }\"");
-		//System.out.println("2");
-		writer.close();
-	    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-	    //StringBuffer jsonString = new StringBuffer();
-	    //String line;
-	    //while ((line = br.readLine()) != null) {
-	    //        jsonString.append(line);
-	    //}
-	    //br.close();
-	    //System.out.println("Hello 0");
-	    connection.disconnect();
-	} catch (Exception e) {
-	        throw new RuntimeException(e.getMessage());
-	}
-	
-	//PUT API CALL
-	
-	
-	/*PrintWriter out = response.getWriter(); 
+	PrintWriter out = response.getWriter(); 
 	response.setContentType("application/json"); 
 	response.setCharacterEncoding("UTF-8");
 	out.append("{  \"requiresConfiguration\": false }");
 	out.flush();
-	*/
+	
 	//doGet(request, response);
 	response.setStatus(200); 
 	
