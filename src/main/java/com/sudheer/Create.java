@@ -17,7 +17,7 @@ public class Create extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// For Tracing
 		String trace = request.getRequestURL()+"|"+request.getParameter("instance")+"|"+request.getParameter("siteId")+"|"+request.getParameter("asset")+"|"+request.getParameter("status");
@@ -35,4 +35,23 @@ public class Create extends HttpServlet {
 		response.setStatus(200);
 		
 	}
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	// For Tracing
+	String trace = request.getRequestURL()+"|"+request.getParameter("instance")+"|"+request.getParameter("siteId")+"|"+request.getParameter("asset")+"|"+request.getParameter("status");
+	trace t=new trace();
+	t.send(trace);
+	// For Tracing
+	
+	/*
+	PrintWriter out = response.getWriter(); 
+	response.setContentType("application/json"); 
+	response.setCharacterEncoding("UTF-8");
+	out.print("");
+	out.flush();
+	*/
+	doGet(request, response);
+	response.setStatus(200); 
+	
+}
 }
