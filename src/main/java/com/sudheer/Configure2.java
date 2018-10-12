@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Create")
+@WebServlet("/Configure2")
 public class Configure2 extends HttpServlet {
 	static String abc;
 	static int count;
