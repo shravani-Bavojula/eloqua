@@ -73,13 +73,16 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	    connection.setDoOutput(true);
 	    connection.setRequestMethod("PUT");
 	    //connection.connect();
-	    connection.setRequestProperty("Accept", "application/json");
-	    connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-	    
-	    //System.out.println("1");
+	   // connection.setRequestProperty("Accept", "application/json");
+	    connection.setRequestProperty("Content-Type", "application/json");
+	    connection.setRequestProperty("Authorization", "Basic VGVjaG5vbG9neVBhcnRuZXJJbm5vdmFjeFNvbHV0aW9uc0luY1xzdWRoZWVya3VtYXIuYWt1bGE6SW5ub3ZhY3hAMjAxNw==");
 	    OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-		writer.write("\"{  \\\"requiresConfiguration\\\": false }\"");
-		//System.out.println("2");
+		if(count/2==0) {
+	    writer.write("\"{  \\\"requiresConfiguration\\\": \"true\" }\"");
+		}else {
+		writer.write("\"{  \\\"requiresConfiguration\\\": \"false\" }\"");
+		}
+	    //System.out.println("2");
 		writer.close();
 	    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 	    //StringBuffer jsonString = new StringBuffer();
@@ -88,7 +91,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	    //        jsonString.append(line);
 	    //}
 	    //br.close();
-	    //System.out.println("Hello 0");
 	    connection.disconnect();
 	} catch (Exception e) {
 	        throw new RuntimeException(e.getMessage());
@@ -105,6 +107,5 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	*/
 	//doGet(request, response);
 	response.setStatus(200); 
-	
 }
 }
