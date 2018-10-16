@@ -64,8 +64,10 @@ function fun3(){
 			});
 	}
 </script>
+<!--
 <input type="button" value="Configure" onclick="fun()" />
 <input type="button" value="Configure2" onclick="fun2()" />
 <input type="button" value="Configure3" onclick="fun3()" />
+-->
 </body>
 </html>
