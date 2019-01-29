@@ -21,7 +21,7 @@ public class vamsi extends HttpServlet {
 	static int count;
 	private static final long serialVersionUID = 2L; 
 	
-    public Create() {
+    public vamsi() {
     	abc="{\"0\":\"URL|instance|siteId|asset|status\"}";
         // TODO Auto-generated constructor stub
     }
