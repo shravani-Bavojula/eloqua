@@ -30,7 +30,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	
 	// For Tracing
 	
-	String text = request.body;
+	String text = request.body();
 	
 	/*
 	trace t=new trace();
