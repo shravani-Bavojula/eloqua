@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Create")
-public class Create extends HttpServlet {
+@WebServlet("/Vamsi")
+public class vamsi extends HttpServlet {
 	static String abc;
 	static int count;
 	private static final long serialVersionUID = 2L; 
