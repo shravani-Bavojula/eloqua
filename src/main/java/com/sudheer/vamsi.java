@@ -31,7 +31,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	
 	// For Tracing
 	
-	String text = request.getReader().toSting();
+	String text = request.getReader().toString();
 	
 	/*
 	trace t=new trace();
