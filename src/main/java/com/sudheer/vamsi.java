@@ -32,7 +32,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	// For Tracing
 	
 	String text = request.getReader().toString();
-	
 	/*
 	trace t=new trace();
 	t.send(trace);
@@ -60,7 +59,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	// For Tracing
 	
 	count++;
-	abc+=request.body+"\n\n\n\nHello\n\n\n\n";
+	abc+=request.getReader().toString()+"\n\n\n\nHello\n\n\n\n";
 	PrintWriter out = response.getWriter(); 
 	response.setContentType("application/json"); 
 	response.setCharacterEncoding("UTF-8");
