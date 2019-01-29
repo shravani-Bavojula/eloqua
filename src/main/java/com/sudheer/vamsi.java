@@ -3,6 +3,7 @@ package com.sudheer;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -30,7 +31,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	
 	// For Tracing
 	
-	String text = request.body();
+	String text = request.getReader().toSting();
 	
 	/*
 	trace t=new trace();
