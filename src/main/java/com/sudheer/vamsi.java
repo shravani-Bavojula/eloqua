@@ -66,7 +66,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	response.setCharacterEncoding("UTF-8");
 	out.append("{  \"requiresConfiguration\": false }");
 	out.flush();
-	
+	 
 	//doGet(request, response);
 	response.setStatus(200); 
 	
